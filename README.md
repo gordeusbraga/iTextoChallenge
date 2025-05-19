@@ -1,2 +1,1 @@
-# iTextoChallenge
-Create a front-end for the Dev All website
+Criei o projeto com vite pois ele e mais rapido com tailwind
