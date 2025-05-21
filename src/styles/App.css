@@ -7,3 +7,9 @@
     --font-title: 'Kadwa', sans-serif;
     --font-body: 'Poppins', sans-serif;
 }
+
+.placeholder-font-body::placeholder {
+    font-family: var(--font-body);
+    font-weight: bold;
+    opacity: 0.5;
+}
