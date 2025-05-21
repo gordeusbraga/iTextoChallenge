@@ -36,9 +36,10 @@ export default function App() {
 
     setPosts((prevPosts) => [...prevPosts, ...newPosts]);
     setPage(nextPage);
+    console.log(posts);
   }
 
-
+  //Usar search no lugar de content nao funcionou como diz no yml
   async function searchPosts(query, page) {
     const response = await fetch(`https://api.devall.com.br/api/v2/post?content=${query}&page=${page}`);
     const data = await response.json();
@@ -50,12 +51,13 @@ export default function App() {
     setPage(1);
     setPosts([]);
     searchPosts(query, 1);
+
   }
 
 
 
   return (
-    <section className="w-screen min-h-screen bg-[#F9FAFB] flex flex-col items-center justify-start pt-7 ">
+    <section className="w-screen min-h-screen bg-[#F9FAFB] flex flex-col items-center justify-start pt-7">
       <Header></Header>
       <SearchComponents onSearch={handleSearch}></SearchComponents>
       <section className="w-[100%] h-[80%] flex align-center justify-center flex-wrap max-w-[1040px] ">
