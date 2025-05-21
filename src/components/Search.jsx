@@ -6,7 +6,9 @@ export default function SearchComponents(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.onSearch(search);
+    const trimmed = search.trim();
+    props.onSearch(trimmed);
+    setSearch("");
   }
 
   return (

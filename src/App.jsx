@@ -33,6 +33,11 @@ export default function App() {
     } else {
       newPosts = await fetchPosts(nextPage);
     }
+    if (!newPosts || newPosts.length === 0) {
+
+      setPosts([]);
+      return;
+    }
 
     setPosts((prevPosts) => [...prevPosts, ...newPosts]);
     setPage(nextPage);
@@ -43,6 +48,12 @@ export default function App() {
   async function searchPosts(query, page) {
     const response = await fetch(`https://api.devall.com.br/api/v2/post?content=${query}&page=${page}`);
     const data = await response.json();
+
+    if (!data || data.length === 0) {
+
+      setPosts([]);
+      return;
+    }
     setPosts(data);
   }
 

@@ -16,6 +16,13 @@ export default (props) => {
         <>
             {props.posts.map((post) => {
                 let formattedDate = getFormattedDate(post.pubDate);
+                if (!post || post.length === 0) {
+                    return (
+                        <div className="text-[#111827] text-lg mt-10">
+                            Nenhum resultado encontrado.
+                        </div>
+                    );
+                }
 
                 return (
                     <div
